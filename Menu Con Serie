@@ -1,0 +1,89 @@
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+void menu(int &n);
+float potencia(float base,float exponencial);
+int factorial(int fact);
+float serie(float x, int k);
+
+
+int main()
+{
+    int n,fact;
+    float base,exponencial,x,k;
+
+   do{
+   menu(n);
+   
+   switch(n){
+       case 1: do{
+               cout<<"ingrese la base: ";cin>>base;
+                }while(base<0);
+                do{
+               cout<<"ingrese el exponente: ";cin>>exponencial;
+                }while(exponencial<0);
+               cout<<"la potencia es : "<<potencia(base,exponencial)<<endl;
+            
+               break;
+       
+       case 2: do{
+               cout<<"ingrese el factorial: ";cin>>fact;
+                }while(fact<0);
+               cout<<"El factorial es : "<<factorial(fact)<<endl;
+               
+               break;
+       
+       case 3: do{
+               cout<<"ingrese x ";cin>>x;
+                }while(x<0);
+                do{
+               cout<<"ingrese k ";cin>>k;
+                }while(k<0);
+               cout<<"el resultado es "<<serie(x,k)<<endl;
+               
+               break;
+               
+       case 0:cout<<"Gracias por usar mi menu"<<endl; break;
+       
+       default: cout<<"la opcion que ingresaste es incorrecta"<<endl;
+   }
+   }while(n!=0);
+    return 0;
+}
+void menu(int &n){
+ 
+   cout<<"--------MENU--------"<<endl;
+   cout<<"1.Exponencial       "<<endl;
+   cout<<"2.Factorial         "<<endl;
+   cout<<"3.Serie             "<<endl;
+   cout<<"0.SALIR             "<<endl;
+   cin>>n;
+}
+float potencia(float base,float exponencial){
+    int result;
+    
+    result=pow(base,exponencial);
+    
+    return result;
+}
+int factorial(int fact){
+    
+    int result=1;
+    
+    for(int i=1 ; i <= fact ; i++){
+        
+        result=result*i;
+    }
+    return result;
+}
+float serie(float x, int k){
+    float aux=0;
+    
+    for(int i=2 ;i <= k;i+=2){
+      
+    aux = aux+potencia(x,i) / factorial(i); 
+    }
+    return aux+3+x;
+}
