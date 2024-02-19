@@ -1,0 +1,65 @@
+#include <iostream>
+
+using namespace std;
+
+void menu(int &n);
+void suma(int n);
+void resta(int n);
+void multi(int n);
+
+
+int main()
+{
+    int n;
+   do{
+   menu(n);
+   
+   switch(n){
+       case 1: suma(n);break;
+       case 2: resta(n);break;
+       case 3: multi(n);break;
+       case 0:cout<<"Gracias por usar mi menu"<<endl; break;
+       default: cout<<"la opcion que ingresaste es incorrecta"<<endl;
+   }
+   }while(n!=0);
+    return 0;
+}
+void menu(int &n){
+ 
+   cout<<"--------MENU--------"<<endl;
+   cout<<"1.SUMA              "<<endl;
+   cout<<"2.RESTO"<<endl;
+   cout<<"3.MULTIPLICACION"<<endl;
+   cout<<"0.SALIR"<<endl;
+   cin>>n;
+}
+void  suma(int n){
+    float dig1,dig2,result;
+    
+    cout<<"ingrese el primer digito"<<endl;cin>>dig1;
+    cout<<"ingrese el segundo digito"<<endl;cin>>dig2;
+    
+    result=dig1+dig2;
+    
+    cout<<"tu resultado es: "<<result<<endl;
+}
+void  resta(int n){
+    float dig1,dig2,result;
+    
+    cout<<"ingrese el primer digito"<<endl;cin>>dig1;
+    cout<<"ingrese el segundo digito"<<endl;cin>>dig2;
+    
+    result=dig1-dig2;
+    
+    cout<<"tu resultado es: "<<result<<endl;
+}
+void multi(int n){
+     float dig1,dig2,result;
+    
+    cout<<"ingrese el primer digito"<<endl;cin>>dig1;
+    cout<<"ingrese el segundo digito"<<endl;cin>>dig2;
+    
+    result=dig1*dig2;
+    
+    cout<<"tu resultado es: "<<result<<endl;
+}
