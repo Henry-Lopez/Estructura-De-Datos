@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void Palindromo(int numero, int& numeroReverso);
+bool esPalindromo(string entrada);
+
+int main() {
+    string entrada;
+
+    cout << "Ingrese una palabra o un numero: "; cin >> entrada;
+
+    if (esPalindromo(entrada)) {
+        cout << entrada << " es un palindromo." << endl;
+    }
+    else {
+        cout << entrada << " no es un palindromo." << endl;
+    }
+
+    return 0;
+}
+
+void Palindromo(int numero, int& numeroReverso) {
+    if (numero == 0) {
+        return;
+    }
+    int digito = numero % 10;
+    numeroReverso = numeroReverso * 10 + digito;
+    Palindromo(numero / 10, numeroReverso);
+}
+
+bool esPalindromo(string entrada) {
+    int inicio = 0;
+    int fin = entrada.length() - 1;
+
+    while (inicio < fin) {
+        if (entrada[inicio] != entrada[fin]) {
+            return false;
+        }
+        inicio++;
+        fin--;
+    }
+    return true;
+}
