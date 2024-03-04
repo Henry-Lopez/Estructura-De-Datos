@@ -1,0 +1,19 @@
+
+#include "Estudiante.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	Estudiante alumno;
+	string nombre;
+	cout << "ingrese el nombre: ";
+	getline(cin, nombre);
+	alumno.set_nombre(nombre);
+	cout << "el nombre del estudiante es : " << alumno.get_nombre();
+	cout << "el nombre es: " << nombre;
+	return 0;
+}
+
