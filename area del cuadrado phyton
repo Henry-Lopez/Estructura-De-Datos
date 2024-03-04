@@ -1,0 +1,16 @@
+class Cuadrado:
+    def _init_(self):
+        self.lado = 0
+
+    def ilado(self):
+        self.lado = float(input("Ingresa el lado del cuadrado: "))
+
+    def carea(self):
+        return self.lado**2
+
+x_cuadrado = Cuadrado()
+
+x_cuadrado.ilado()
+
+area = x_cuadrado.carea()
+print("El área del cuadrado con lado", x_cuadrado.lado, "es:", area)
