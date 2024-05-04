@@ -1,0 +1,25 @@
+#pragma once
+#include "Nodo.h"
+#include <iostream>
+using namespace std;
+
+#define MAX 100 // Tamaño máximo de la pila
+
+struct Pila {
+    Nodo* tope; // Puntero al tope de la pila
+    Nodo nodos[MAX]; // Array para almacenar los nodos
+    int indiceTope; // Índice del tope de la pila en el array
+
+    // Constructor
+    Pila();
+
+    // Métodos
+    void push(int elemento);
+    bool pila_vacia();
+    bool pila_llena();
+    void pop();
+    void LimpiarPila();
+    void ver_pila();
+    bool Iguales(Pila& otra_pila);
+   
+};
