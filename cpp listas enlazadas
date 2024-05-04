@@ -1,0 +1,76 @@
+#include "ListaEnlazada.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+ListaEnlazada::ListaEnlazada()
+{
+	inicio = NULL;
+	fin = NULL;
+}
+
+void ListaEnlazada::agregar_animal(string nombre, string habitat, string estado)
+{
+	Nodo* aux = new Nodo(nombre, habitat, estado);
+	if (inicio == NULL) {
+		inicio = aux;
+		fin = aux;
+	}
+	else {
+		fin->sig = aux;//el puntero siguiente del ultimo apunta al aux
+		fin = aux;//el aux es el puntero al fin
+	}
+
+}
+
+void ListaEnlazada::eliminar_animal(string nombre)
+{
+	Nodo* actual = inicio;
+	Nodo* anterior = fin;
+
+	while (actual != NULL && actual->nombre != nombre) {
+		anterior = actual;
+		actual = actual->sig;
+	}
+	//encontro el animal o llego a null
+	if (actual == NULL) {
+		cout << "No se encuentra el animal en la lista " << endl;
+		return;
+	}
+	else if (actual == inicio) {
+		inicio = inicio->sig;
+	}
+	else {
+		anterior->sig = actual->sig;
+		delete actual;//si queremos elminar el nodo fisicamente
+	}
+	cout << "El animal a sido eliminado exitosamente **" << endl;
+}
+
+void ListaEnlazada::buscar_animal(string nombre)
+{
+	Nodo* actual = inicio;
+	while (actual != NULL) {
+		if (actual->nombre == nombre) {
+
+			cout << "Nombre "<< actual->nombre << endl;
+			cout << "Habitat "<< actual->habitat << endl;
+			cout << "Estado "<< actual->estado_observacion << endl;
+			return;
+		}
+		actual = actual->sig;
+	}
+	cout << "No encontre los datos que me pides" << endl;
+}
+
+void ListaEnlazada::mostrar_lista() {
+	Nodo* actual = inicio;
+	while (actual != nullptr) {
+		cout << "Nombre: " << actual->nombre << endl;
+		cout << "Habitat: " << actual->habitat << endl;
+		cout << "Estado: " << actual->estado_observacion << endl;
+		cout << endl;
+		actual = actual->sig;
+	}
+}
