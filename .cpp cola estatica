@@ -1,0 +1,73 @@
+#include "Cola.h"
+
+
+Cola::Cola() {
+    inicio = nullptr;
+    fin = nullptr;
+}
+
+bool Cola::push(string Valor) {
+    if (!inicio && !fin) {
+        inicio = new Nodo;
+        inicio->nombre = Valor;
+        inicio->siguiente = nullptr;
+        fin = inicio;
+        return true;
+    }
+    else if (inicio && fin) {
+        if (inicio == fin && inicio->nombre == "") {
+            inicio->nombre = Valor;
+            return true;
+        }
+        if (!fin->siguiente) {
+            fin->siguiente = new Nodo;
+            fin = fin->siguiente;
+            fin->nombre = Valor;
+            fin->siguiente = nullptr;
+            return true;
+        }
+    }
+    cout << "Error: La cola está llena." << endl;
+    return false;
+}
+
+bool Cola::pop() {
+    if (colaVacia()) {
+        cout << "Error: La cola está vacía." << endl;
+        return false;
+    }
+    Nodo* temp = inicio;
+    inicio = inicio->siguiente;
+    delete temp;
+    return true;
+}
+
+void Cola::show() {
+    if (colaVacia()) {
+        cout << "La cola está vacía." << endl;
+    }
+    else {
+        cout << "Contenido de la cola:" << endl;
+        Nodo* temp = inicio;
+        while (temp != nullptr) {
+            cout << "[" << temp->nombre << "] ";
+            temp = temp->siguiente;
+        }
+        cout << endl;
+    }
+}
+
+bool Cola::colaVacia() {
+    return inicio == nullptr && fin == nullptr;
+}
+
+void Cola::vaciarCola() {
+    Nodo* temp;
+    while (inicio != nullptr) {
+        temp = inicio;
+        inicio = inicio->siguiente;
+        delete temp;
+    }
+    fin = nullptr;
+    cout << "La cola ha sido vaciada." << endl;
+}
