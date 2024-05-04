@@ -1,0 +1,48 @@
+#include <iostream>
+#include "Pila.h"
+
+using namespace std;
+
+int main() {
+    Pila pila;
+    int opcion;
+
+    do {
+        cout << "MENU PRINCIPAL" << endl;
+        cout << "1. Agregar proceso a la pila" << endl;
+        cout << "2. Eliminar proceso de la pila" << endl;
+        cout << "3. Mostrar todos los procesos" << endl;
+        cout << "4. Mostrar proceso en el tope de la pila" << endl;
+        cout << "5. Mostrar tamaño de la pila" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Ingrese una opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            pila.push();
+            break;
+        case 2:
+            pila.pop();
+            break;
+        case 3:
+            pila.show();
+            break;
+        case 4:
+            pila.top();
+            break;
+        case 5:
+            pila.size();
+            break;
+        case 0:
+            cout << "Saliendo del programa." << endl;
+            break;
+        default:
+            cout << "Opción inválida. Intente de nuevo." << endl;
+            break;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
