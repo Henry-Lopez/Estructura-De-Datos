@@ -1,0 +1,15 @@
+#pragma once
+#include "Nodo.h"
+
+class Cola {
+private:
+    Nodo* inicio;
+    Nodo* fin;
+
+public:
+    Cola();
+    bool vacia() ;
+
+    void Encolar();
+    void Desencolar();
+};
