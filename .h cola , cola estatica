@@ -1,0 +1,20 @@
+#pragma once
+#include <string>
+#include <iostream>
+#include "Nodo.h"
+#define MAX 10
+
+using namespace std;
+
+struct Cola {
+    Nodo* inicio;
+    Nodo* fin;
+
+    Cola();
+
+    bool push(string Valor);
+    bool pop();
+    void show();
+    bool colaVacia();
+    void vaciarCola();
+};
