@@ -1,0 +1,15 @@
+#pragma once
+#include "Nodo.h"
+
+struct ListaEnlazada
+{
+	Nodo* inicio;
+	Nodo* fin;
+
+	ListaEnlazada();
+	void agregar_animal(string nombre, string habitat, string estado);
+	void eliminar_animal(string nombre);
+	void buscar_animal(string nombre);
+	void mostrar_lista();
+
+};
