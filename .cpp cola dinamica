@@ -1,0 +1,46 @@
+#include "Cola.h"
+#include <iostream>
+
+using namespace std;
+
+Cola::Cola() : inicio(nullptr), fin(nullptr) {}
+
+bool Cola::vacia()  {
+    return inicio == nullptr;
+}
+
+void Cola::Encolar() {
+    Nodo* Elemento = new Nodo;
+    if (inicio == nullptr) {
+        inicio = fin = Elemento;
+        cout << "Codigo: ";
+        cin >> Elemento->dato.Codigo;
+        cout << "Nombres: ";
+        cin >> Elemento->dato.Nombre;
+        cout << "Carrera: ";
+        cin >> Elemento->dato.Carrera;
+    }
+    else {
+        fin->puntero = Elemento;
+        fin = Elemento;
+        cout << "Codigo: ";
+        cin >> Elemento->dato.Codigo;
+        cout << "Nombres: ";
+        cin >> Elemento->dato.Nombre;
+        cout << "Carrera: ";
+        cin >> Elemento->dato.Carrera;
+        cout << endl;
+    }
+}
+
+void Cola::Desencolar() {
+    if (inicio != nullptr) {
+        cout << "Codigo: " << inicio->dato.Codigo << endl;
+        cout << "Nombres: " << inicio->dato.Nombre << endl;
+        cout << "Carrera: " << inicio->dato.Carrera << endl;
+        inicio = inicio->puntero;
+    }
+    else {
+        cout << "La cola se encuentra vacia" << endl;
+    }
+}
