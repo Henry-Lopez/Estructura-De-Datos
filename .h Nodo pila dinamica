@@ -1,0 +1,16 @@
+#pragma once
+#include "nodo.h"
+
+struct Pila {
+    Nodo* inicio;
+
+    Pila() {
+        inicio = nullptr;
+    }
+
+    void push();
+    void pop();
+    void show();
+    void top();
+    void size();
+};
