@@ -1,0 +1,42 @@
+#include "Alasitas.h"
+
+int main() {
+    Alasitas alasitas;
+    int opcion;
+
+    do {
+        cout << "***MENU***" << endl;
+        cout << "1. Mostrar Matriz" << endl;
+        cout << "2. Mostrar Lista" << endl;
+        cout << "3. Ingresar Elementos de la Matriz" << endl;
+        cout << "4. Eliminar Elemento" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Opción: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            alasitas.mostrarMatriz();
+            break;
+        case 2:
+            alasitas.mostrarLista();
+            break;
+        case 3:
+            alasitas.ingresarElementosMatriz();
+            break;
+        case 4:
+            int filaEliminar, columnaEliminar;
+            cout << "Ingrese las coordenadas del elemento que desea eliminar (fila columna): ";
+            cin >> filaEliminar >> columnaEliminar;
+            alasitas.eliminarElemento(filaEliminar, columnaEliminar);
+            break;
+        case 0:
+            cout << "Saliendo..." << endl;
+            break;
+        default:
+            cout << "Opción inválida. Por favor, ingrese una opción válida." << endl;
+        }
+    } while (opcion != 0);
+
+    return 0;
+}
