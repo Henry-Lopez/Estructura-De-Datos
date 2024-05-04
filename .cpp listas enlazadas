@@ -1,0 +1,9 @@
+#include "Nodo.h"
+
+Nodo::Nodo(string n, string h, string e)
+{
+	this->nombre = n;
+	this->habitat = h;
+	this->estado_observacion = e;
+	sig = NULL;
+}
