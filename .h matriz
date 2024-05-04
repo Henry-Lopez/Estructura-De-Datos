@@ -1,0 +1,20 @@
+#pragma once
+#include <iostream>
+#include "Nodo.h"
+
+using namespace std;
+
+#define MAX_FILAS 3
+#define MAX_COLUMNAS 3
+
+struct Alasitas {
+
+    int elementos[MAX_FILAS][MAX_COLUMNAS];
+    Nodo* cabeza;
+
+    Alasitas();
+    void mostrarMatriz();
+    void mostrarLista();
+    void ingresarElementosMatriz();
+    void eliminarElemento(int fila, int columna);
+};
