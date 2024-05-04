@@ -1,0 +1,14 @@
+#pragma once
+#include <string>
+
+using namespace std;
+
+struct Nodo
+{
+	string nombre;
+	string habitat;
+	string estado_observacion;
+	Nodo* sig;
+
+	Nodo(string n, string h, string e);
+};
