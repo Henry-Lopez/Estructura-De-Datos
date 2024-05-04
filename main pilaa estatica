@@ -1,0 +1,63 @@
+#include <iostream>
+#include "Pila.h" // Incluimos la definición de la estructura Pila
+
+using namespace std;
+
+int main() {
+    Pila pila;
+    int opcion, elemento;
+    Pila otra_pila;
+
+    do {
+        cout << "MENU PRINCIPAL" << endl;
+        cout << "1. Agregar elemento a la pila" << endl;
+        cout << "2. Eliminar elemento de la pila" << endl;
+        cout << "3. Limpiar la pila" << endl;
+        cout << "4. Ver elementos de la pila" << endl;
+        cout << "5. Ver si dos pilas son iguales" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Ingrese una opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            cout << "Ingrese el elemento a agregar: ";
+            cin >> elemento;
+            pila.push(elemento);
+            break;
+        case 2:
+            pila.pop();
+            break;
+        case 3:
+            pila.LimpiarPila();
+            break;
+        case 4:
+            pila.ver_pila();
+            break;
+        case 5:
+            cout << "Ingrese los elementos de la otra pila (hasta 100 elementos, -1 para finalizar): ";
+            int input;
+            cin >> input;
+            while (input != -1) {
+                otra_pila.push(input);
+                cin >> input;
+            }
+            if (pila.Iguales(otra_pila)) {
+                cout << "Las pilas son iguales." << endl;
+            }
+            else {
+                cout << "Las pilas son diferentes." << endl;
+            }
+            break;
+        case 0:
+            cout << "Saliendo del programa." << endl;
+            break;
+        default:
+            cout << "Opción inválida. Intente de nuevo." << endl;
+            break;
+        }
+
+    } while (opcion != 0);
+
+    return 0;
+}
