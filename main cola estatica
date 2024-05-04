@@ -1,0 +1,47 @@
+#include <stdlib.h>
+#include"Cola.h"
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    Cola l;
+    int opcion;
+    string elemento;
+    do {
+
+        cout << "[:]Bienvenido al festival" << endl;
+        cout << "[1]Esperando el autobus" << endl;
+        cout << "[2]llego el autobus , se suben 3 " << endl;
+        cout << "[3]Mostrar a todos los que esperan el autous" << endl;
+        cout << "[4]Se van Todos" << endl;
+        cout << "[0]Salir" << endl;
+        cout << "\nIngresa tu opcion: ";
+        cin >> opcion;
+        switch (opcion) {
+        case 1:
+            cout << "Ingrese el nombre a encolar: ";
+            cin.ignore();
+            getline(cin, elemento);
+            l.push(elemento);
+            break;
+        case 2:
+            l.pop();
+            break;
+        case 3:
+            l.show();
+            break;
+        case 4:
+            l.vaciarCola();
+            break;
+        case 0:
+            return 0;
+            break;
+        default:
+            cout << "Por favor ingresa una opcion correcta.\n";
+            break;
+        }
+    } while (opcion != 0);
+    return 0;
+}
