@@ -1,0 +1,60 @@
+#include <iostream>
+#include "ListaEnlazada.h"
+#include <string>
+
+using namespace std;
+
+int main() {
+    ListaEnlazada l;
+    string nombre, habitat, estado;
+    int n;
+
+    do {
+        cout << "\n*** MENU ***" << endl;
+        cout << "1. Agregar Animal" << endl;
+        cout << "2. Eliminar Animal" << endl;
+        cout << "3. Buscar Animal" << endl;
+        cout << "4. Mostrar Lista" << endl;
+        cout << "0. Salir" << endl;
+        cout << "Ingrese su opción: ";
+        cin >> n;
+
+        switch (n) {
+        case 1:
+            cout << "Ingrese el nombre del animal: ";
+            cin.ignore();
+            getline(cin, nombre);
+            cout << "Ingrese el habitat del animal: ";
+            getline(cin, habitat);
+            cout << "Ingrese el estado del animal: ";
+            getline(cin, estado);
+            l.agregar_animal(nombre, habitat, estado);
+            cout << "Animal agregado correctamente." << endl;
+            break;
+        case 2:
+            cout << "Ingrese el nombre del animal a eliminar: ";
+            cin.ignore();
+            getline(cin, nombre);
+            l.eliminar_animal(nombre);
+            break;
+        case 3:
+            cout << "Ingrese el nombre del animal a buscar: ";
+            cin.ignore();
+            getline(cin, nombre);
+            l.buscar_animal(nombre);
+            break;
+        case 4:
+            cout << "\nMostrando la lista de animales:" << endl;
+            l.mostrar_lista();
+            break;
+        case 0:
+            cout << "Saliendo..." << endl;
+            break;
+        default:
+            cout << "Opción no válida. Inténtelo de nuevo." << endl;
+            break;
+        }
+    } while (n != 0);
+
+    return 0;
+}
