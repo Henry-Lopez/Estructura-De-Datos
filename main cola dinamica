@@ -1,0 +1,36 @@
+#include <iostream>
+#include "Cola.h"
+
+using namespace std;
+
+int main() {
+    Cola cola;
+    int opcion;
+
+    do {
+        cout << "1. LA COLA ESTA VACIA?" << endl;
+        cout << "2. ENCOLAR" << endl;
+        cout << "3. DESENCOLAR" << endl;
+        cout << "4. FINALIZAR" << endl;
+        cout << "Opcion: ";
+        cin >> opcion;
+
+        switch (opcion) {
+        case 1:
+            if (cola.vacia())
+                cout << "La cola se encuentra vacia" << endl;
+            else
+                cout << "Existe elemento(s) dentro de la cola" << endl;
+            break;
+        case 2:
+            cola.Encolar();
+            break;
+        case 3:
+            cola.Desencolar();
+            break;
+        }
+
+    } while (opcion != 4);
+
+    return 0;
+}
